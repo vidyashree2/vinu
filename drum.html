@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>viddu drum kit</h1>
+    <div calss="set">
+        <button class="w drum">W</button>
+        <button class="a drum">A</button>
+        <button class="s drum">S</button>
+        <button class="d drum">D</button>
+        <button class="j drum">J</button>
+        <button class="k drum">K</button>
+        <button class="l drum">L</button>
+
+    </div>
+</body>
+<style>
+    body{
+        text-align: center;
+        background-color: #f2f2;
+
+    }
+    h1{
+        font-size: 5vw;
+        color: rgb(red,green,blue);
+        box-shadow: 0px 2px 4px 0px black;
+    }
+    .w{
+        background-image: url('img/crash.png');
+        background-size: cover;
+    }
+    
+    .a{
+        background-image: url('img/tom4.png');
+        background-size: cover;
+
+    }
+    .s{
+        background-image: url('img/tom3.png');
+        background-size: cover;
+
+    }
+    .d{
+        background-image: url('img/tom2.png');
+        background-size: cover;
+
+    }
+    .j{
+        background-image: url('img/tom1.png');
+        background-size: cover;
+
+    }
+    .k{
+        background-image: url('img/snare.png');
+        background-size: cover;
+
+    }
+    .l{
+        background-image: url('img/kick.png');
+        background-size: cover;
+
+    }
+    button{
+        margin-left: auto;
+        border-radius: 95%;
+        
+    }
+    
+    
+</style>
+<script>
+    var numberofButtons = document.querySelectorAll(".drum").length;
+    for(var i=0;i<numberofButtons;i++){
+        document.querySelectorAll(".drum")[i].addEventListener("click" ,function(){
+            var buttonInnerHTML = this.innerHTML;
+            makeSound(buttonInnerHTML);
+        });
+    }
+    document.addEventListener('keydown',function(event){
+        makeSound(event.key);
+    });
+    function makeSound(key) {
+        switch(key){
+            case "w":
+                var crash = new Audio(' sound/crash.mp3');
+                crash.play();
+                break;
+
+                case "a":
+                var tom4 = new Audio('sound/tom-4.mp3');
+                tom4.play();
+                break;
+
+                case "s":
+                var tom3 = new Audio('sound/tom-3.mp3');
+                tom3.play();
+                break;
+
+                case "d":
+                var tom2 = new Audio('sound/tom-2.mp3');
+                tom2.play();
+                break;
+
+                case "j":
+                var tom1 = new Audio(' sound/tom-1.mp3 ');
+                tom1.play();
+                break;
+
+                case "k":
+                var snare = new Audio('sound/snare.mp3 ');
+                snare.play();
+                break;
+
+                case "l":
+                var kick = new Audio('sound/kick-bass.mp3');
+                kick.play();
+                break;
+                
+                
+        }
+    }
+</script>
+
+</html>
